@@ -26,7 +26,7 @@ declare module "meteor/meteor" {
             _id?: string;
             username?: string;
             emails?: UserEmail[];
-            createdAt?: number;
+            createdAt?: Date;
             profile?: any;
             services?: any;
         }

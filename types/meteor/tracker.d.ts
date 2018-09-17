@@ -32,7 +32,7 @@ declare module "meteor/tracker" {
 
         function flush(): void;
 
-        function nonreactive(func: Function): void;
+        function nonreactive(func: Function): any;
 
         function onInvalidate(callback: Function): void;
     }

@@ -57,13 +57,7 @@ declare module Mongo {
 
     type Flatten<T> = T extends any[] ? T[0] : T
 
-    type Query<T> = {
-        [P in keyof T]?: Flatten<T[P]> | RegExp | FieldExpression<Flatten<T[P]>>
-    } & {
-            $or?: Query<T>[],
-            $and?: Query<T>[],
-            $nor?: Query<T>[]
-        } & Dictionary<any>
+    type Query<T> = Dictionary<any>
 
     type QueryWithModifiers<T> = {
         $query: Query<T>,
@@ -105,7 +99,7 @@ declare module Mongo {
         $max?: PartialMapTo<T, Date | number> & Dictionary<Date | number>,
         $mul?: PartialMapTo<T, number> & Dictionary<number>,
         $rename?: PartialMapTo<T, string> & Dictionary<string>,
-        $set?: Partial<T> & Dictionary<any>,
+        $set?: Dictionary<any>,
         $setOnInsert?: Partial<T> & Dictionary<any>,
         $unset?: PartialMapTo<T, boolean | 1 | 0> & Dictionary<any>,
         $addToSet?: ArraysOrEach<T> & Dictionary<any>,
