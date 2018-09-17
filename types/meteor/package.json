@@ -1,0 +1,6 @@
+{
+  "name": "maestroqa-types-meteor",
+  "version": "1.0.0",
+  "description": "forked version of @types/meteor for maestroqa's use",
+  "author": "dard12"
+}
