@@ -93,22 +93,22 @@ declare module "meteor/mongo" {
             [P in keyof T]?: OnlyArrays<T[P]> | { $each: T[P] }
         }
         type CurrentDateModifier = { $type: "timestamp" | "date" } | true
-        type Modifier<T> = {
-            $currentDate?: Partial<Record<keyof T, CurrentDateModifier>> & Dictionary<CurrentDateModifier>,
-            $inc?: PartialMapTo<T, number> & Dictionary<number>,
-            $min?: PartialMapTo<T, Date | number> & Dictionary<Date | number>,
-            $max?: PartialMapTo<T, Date | number> & Dictionary<Date | number>,
-            $mul?: PartialMapTo<T, number> & Dictionary<number>,
-            $rename?: PartialMapTo<T, string> & Dictionary<string>,
-            $set?: Dictionary<any>,
-            $setOnInsert?: Partial<T> & Dictionary<any>,
-            $unset?: PartialMapTo<T, boolean | 1 | 0> & Dictionary<any>,
-            $addToSet?: ArraysOrEach<T> & Dictionary<any>,
-            $push?: PushModifier<T> & Dictionary<any>,
-            $pull?: ElementsOf<T> & Dictionary<any>,
-            $pullAll?: Partial<T> & Dictionary<any>,
-            $pop?: PartialMapTo<T, 1 | -1> & Dictionary<1 | -1>,
-        }
+            type Modifier<T> = {
+        $currentDate?: Dictionary<CurrentDateModifier>,
+        $inc?: Dictionary<number>,
+        $min?: Dictionary<Date | number>,
+        $max?: Dictionary<Date | number>,
+        $mul?: Dictionary<number>,
+        $rename?: Dictionary<string>,
+        $set?: Dictionary<any>,
+        $setOnInsert?: Dictionary<any>,
+        $unset?: Dictionary<any>,
+        $addToSet?: Dictionary<any>,
+        $push?: Dictionary<any>,
+        $pull?: Dictionary<any>,
+        $pullAll?: Dictionary<any>,
+        $pop?: Dictionary<1 | -1>,
+    }
 
 
         interface SortSpecifier { }
