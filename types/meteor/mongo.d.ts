@@ -93,7 +93,7 @@ declare module "meteor/mongo" {
             [P in keyof T]?: OnlyArrays<T[P]> | { $each: T[P] }
         }
         type CurrentDateModifier = { $type: "timestamp" | "date" } | true
-        type Modifier<T> = T | {
+        type Modifier<T> = {
             $currentDate?: Partial<Record<keyof T, CurrentDateModifier>> & Dictionary<CurrentDateModifier>,
             $inc?: PartialMapTo<T, number> & Dictionary<number>,
             $min?: PartialMapTo<T, Date | number> & Dictionary<Date | number>,
@@ -154,7 +154,7 @@ declare module "meteor/mongo" {
                 reactive?: boolean;
                 transform?: Function;
             }): T;
-            insert(doc: T, callback?: Function): string;
+            insert(doc: T, options?: { validate: boolean }, callback?: Function): string | Mongo.ObjectID;
             rawCollection(): any;
             rawDatabase(): any;
             remove(selector: Selector<T> | ObjectID | string, callback?: Function): number;
