@@ -79,7 +79,7 @@ declare module "meteor/blaze" {
             lastNode: Object;
             subscribe(name: string, ...args: any[]): Meteor.SubscriptionHandle;
             subscriptionsReady(): boolean;
-            view: Object;
+            view: { isDestroyed: boolean; };
         }
 
         function Each(argFunc: Function, contentFunc: Function, elseFunc?: Function): View;
