@@ -195,7 +195,7 @@ declare module Meteor {
     function onConnection(callback: Function): void;
     /** Connection **/
 
-    function publish(name: string, func: Function): void;
+    function publish(name: string, func: Function): any;
 
     function _debug(...args: any[]): void;
 }
